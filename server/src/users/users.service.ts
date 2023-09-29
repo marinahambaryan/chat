@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { v4 as uuidv4 } from 'uuid';
-import { User } from './dto/user.dto';
+import { User, UsersDictionary } from './dto/user.dto';
 
 @Injectable()
 export class UsersService {
@@ -37,7 +37,7 @@ export class UsersService {
     return Object.values(this.users);
   }
 
-  getUsersDictionary(): User[] {
+  getUsersDictionary(): UsersDictionary {
     return this.users;
   }
 

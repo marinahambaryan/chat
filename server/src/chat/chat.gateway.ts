@@ -25,15 +25,12 @@ export class MyGateway {
 
   onModuleInit() {
     this.server.on('connection', (socket) => {
-      console.log('connected');
       this.clientState.push(socket.id);
-      console.log('client state: ', this.clientState);
     });
   }
 
   @SubscribeMessage('sendMessage')
   onSendMessage(@MessageBody() data: { userId: string; message: string }) {
-    console.log(`sendMessage triggered, data: ${JSON.stringify(data)}`);
     const newMessage = this.roomService.addMessage(data);
     const user = this.usersService.getUserById(data.userId);
     newMessage['username'] = user.username;
