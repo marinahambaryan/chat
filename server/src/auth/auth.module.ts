@@ -4,7 +4,7 @@ import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
 import { UsersModule } from '../users/users.module';
 import { jwtConstants } from './constants';
-import { RoomModule } from 'src/room/room.module';
+import { RoomModule } from '../room/room.module';
 
 @Module({
   imports: [

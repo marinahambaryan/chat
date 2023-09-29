@@ -5,14 +5,13 @@ import {
   WebSocketServer,
 } from '@nestjs/websockets';
 import { Server } from 'socket.io';
-import { RoomService } from 'src/room/room.service';
-import { UsersService } from 'src/users/users.service';
-
-const CLIENT_URI = 'http://localhost:3000';
+import { RoomService } from '../room/room.service';
+import { UsersService } from '../users/users.service';
+import { configProps } from 'config';
 
 @WebSocketGateway({
   cors: {
-    origin: [CLIENT_URI],
+    origin: [configProps.CLIENT_URL],
   },
 })
 export class MyGateway {
